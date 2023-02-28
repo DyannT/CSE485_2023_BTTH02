@@ -1,13 +1,11 @@
 <?php
+    require("services/ArticleService.php");
     class HomeController{
         public function index(){
-            $data = 'data form models';
+            $articelService = new ArticleService();
+            $articles = $articelService->getAllArticles();
 
-            include('view/home/index.php');
-            // echo 'đm tấn';
+            include("view/home/index.php");
         }
 
-        public function add(){
-            echo 'đm add tấn';
-        }
     }
