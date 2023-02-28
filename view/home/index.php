@@ -64,10 +64,10 @@
             </button>
             </div>
     </header>
-<!-- 
+
     <?php  
             require './view/includes/inc_change_slug.php';
-    ?> -->
+    ?> 
     <main class="container-fluid mt-3">
         <h3 class="text-center text-uppercase mb-3 text-primary">TOP bài hát yêu thích</h3>
         <div class="row">
@@ -80,7 +80,7 @@
                                 <img src="./asset/images/songs/<?php echo !empty($item->hinhanh) ? $item->hinhanh : (str_replace('-','',create_slug($item->ten_bhat)).".jpg")  ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
-                                        <a href="detail.php?id=<?php echo $item->ma_bviet ?>" class="text-decoration-none"><?php echo $item->ten_bhat ?></a>
+                                        <a href="index.php?controller=detail&id=<?php echo $item->ma_bviet ?>" class="text-decoration-none"><?php echo $item->ten_bhat ?></a>
                                     </h5>
                                 </div>
                             </div></a>
