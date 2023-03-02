@@ -1,21 +1,5 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['username'])){
-        header("Location: ../login.php");
-    }
-?>
     <?php
-            require '../includes/header.php'; 
-            require '../includes/database-connection.php';  
-            require '../includes/functions.php';  
-            $sql = "SELECT * FROM `theloai`";
-            $countTheloai = pdo($pdo, $sql)->fetchAll(); 
-            $sql = "SELECT * FROM `user`";
-            $countUsers = pdo($pdo, $sql)->fetchAll(); 
-            $sql = "SELECT * FROM `tacgia`";
-            $countTacgia = pdo($pdo, $sql)->fetchAll(); 
-            $sql = "SELECT * FROM `baiviet`";
-            $countBaiViet = pdo($pdo, $sql)->fetchAll(); 
+            require './view/includes/header.php'; 
     ?>
 
     <main class="container mt-5 mb-5">
@@ -29,7 +13,6 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo count($countUsers) ?>
                         </h5>
                     </div>
                 </div>
@@ -43,7 +26,6 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo count($countTheloai) ?>
                         </h5>
                     </div>
                 </div>
@@ -57,7 +39,6 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo count($countTacgia) ?> 
                         </h5>
                     </div>
                 </div>
@@ -71,7 +52,6 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo count($countBaiViet) ?>
                         </h5>
                     </div>
                 </div>
@@ -79,5 +59,5 @@
         </div>
     </main>
     <?php
-        require '../includes/footer.php';  
+        require './view/includes/footer.php';  
     ?>

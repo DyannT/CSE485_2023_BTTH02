@@ -13,10 +13,32 @@ class Article{
     private $hinhanh;
 
 
-    public function __construct($ma_bviet, $hinhanh,$ten_bhat){
+    private $ten_tgia;
+    private $ten_tloai;
+
+
+    public function __construct($hinhanh = null,
+                                $ten_bhat = null,
+                                $ma_bviet = null,
+                                $tieude = null,
+                                $tomtat = null,
+                                $ten_tgia = null,
+                                $ten_tloai = null,
+                                $ngayviet = null,
+                                $ma_tgia = null,
+                                $ma_tloai = null,
+                                $noidung = null){
         $this->ma_bviet = $ma_bviet;
-        $this->hinhanh = $hinhanh;
+        $this->tieude = $tieude;
         $this->ten_bhat = $ten_bhat;
+        $this->ma_tloai = $ma_tloai;
+        $this->tomtat = $tomtat;
+        $this->noidung = $noidung;
+        $this->ma_tgia = $ma_tgia;
+        $this->ngayviet = $ngayviet;
+        $this->hinhanh = $hinhanh;
+        $this->ten_tgia = $ten_tgia;
+        $this->ten_tloai = $ten_tloai;
     }
 
     // Setter và Getter
@@ -89,5 +111,21 @@ class Article{
 
     public function setNoidung($noidung) {
         $this->noidung = $noidung;
+    }
+
+    public function getTLoai() {
+        return $this->ten_tloai;
+    }
+
+    public function setTLoai($ten_tloai) {
+        $this->ten_tloai = $ten_tloai;
+    }
+
+    public function getTGia() {
+        return $this->ten_tloai;
+    }
+
+    public function setTGia($ten_tgia) {
+        $this->ten_tgia = $ten_tgia;
     }
 }

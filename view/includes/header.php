@@ -34,7 +34,7 @@
                         <a class="nav-link <?php $type == 'the_loai' ? 'active' : '' ?>" href="category.php?type=the_loai">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php $type == 'tac_gia' ? 'active' : '' ?>" href="author.php?type=tac_gia">Tác giả</a>
+                        <a class="nav-link <?php $type == 'tac_gia' ? 'active' : '' ?>" href="author.php?controller=author&type=tac_gia">Tác giả</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php $type == 'bai_viet' ? 'active' : '' ?>" href="article.php?type=bai_viet">Bài viết</a>

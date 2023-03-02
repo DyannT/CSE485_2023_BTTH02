@@ -1,12 +1,12 @@
 <?php
-    require '../includes/header.php';  
+    require './view/includes/header.php';  
 ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-                <form action="process_add_category.php" method="post">
+                <form action="./index.php?controller=category&action=store" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
                         <input type="text" class="form-control" name="txtCatName" >
@@ -21,5 +21,5 @@
         </div>
     </main>
 <?php
-    require '../includes/footer.php';  
+    require './view/includes/footer.php';  
 ?>
