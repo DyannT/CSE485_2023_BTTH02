@@ -1,5 +1,5 @@
 <?php
-require '../includes/header.php';
+require './view/includes/header.php';
 // require '../includes/database-connection.php';
 // require '../includes/functions.php';
 // $sql = "SELECT * FROM `tacgia`";
@@ -8,7 +8,7 @@ require '../includes/header.php';
 <main class="container mt-5 mb-5">
     <div class="row">
         <div class="col-sm">
-            <a href="../author/add_author.php" class="btn btn-success">Thêm mới</a>
+            <a href="index.php?controller=author&action=add" class="btn btn-success">Thêm mới</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -31,7 +31,7 @@ require '../includes/header.php';
                                 <img src="./asset/images/author/<?php echo $item->getHinhTgia() ?>" class="rounded-3" style="width: 150px;" alt="...">
                             </td>
                             <td>
-                                <a href="edit_author.php?id=<?php echo $item->getMaTgia() ?>"><i class="fa-solid fa-pen-to-square">
+                                <a href="index.php?controller=author&action=edit&ma_tgia=<?php echo $item->getMaTgia() ?>"><i class="fa-solid fa-pen-to-square">
                                     </i></a>
                             </td>
                             <td>
@@ -48,10 +48,10 @@ require '../includes/header.php';
 </main>
 <script>
     function showConfirmationDialog(id) {
-        if (confirm("Xóa tác giả sẽ xóa toàn bộ bài viết của tác giả. Bạn có muốn xóa không?")) {
-            window.location.href = "process_delete_author.php?id=" + id;
-        }
+    if (confirm("Xóa tác giả sẽ xóa toàn bộ bài viết của tác giả. Bạn có muốn xóa không?")) {
+        window.location.href = "index.php?controller=author&action=delete&ma_tgia=" + id;
     }
+}
 </script>
 <?php
 // require '../includes/footer.php';

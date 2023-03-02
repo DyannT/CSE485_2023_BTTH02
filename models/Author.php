@@ -4,7 +4,7 @@ class Author{
     private $ten_tgia;
     private $hinh_tgia;
 
-    public function __construct($ma_tgia, $ten_tgia, $hinh_tgia){
+    public function __construct($ma_tgia = null, $ten_tgia = null, $hinh_tgia = null){
         $this->ma_tgia = $ma_tgia;
         $this->ten_tgia = $ten_tgia;
         $this->hinh_tgia = $hinh_tgia;
