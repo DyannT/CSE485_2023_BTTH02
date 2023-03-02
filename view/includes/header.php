@@ -12,10 +12,12 @@
 <body>
     <header>
         <?php
-            $type = null;
-            if(isset($_GET['type'])){
-                $type = $_GET['type'];
+            $index = null;
+            if(isset($_GET['index'])){
+                $index = $_GET['index'];
             }
+
+
         ?>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -28,16 +30,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link <?php echo $index == null ? 'active' : '' ?>" aria-current="page" href="index.php?controller=admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php $type == 'the_loai' ? 'active' : '' ?>" href="category.php?type=the_loai">Thể loại</a>
+                        <a class="nav-link <?php echo $index == '1' ? 'active' : '' ?>" href="index.php?controller=category&index=1">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php $type == 'tac_gia' ? 'active' : '' ?>" href="author.php?controller=author&type=tac_gia">Tác giả</a>
+                        <a class="nav-link <?php echo $index == '2' ? 'active' : '' ?>" href="index.php?controller=author&index=2">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php $type == 'bai_viet' ? 'active' : '' ?>" href="article.php?type=bai_viet">Bài viết</a>
+                        <a class="nav-link "<?php echo $index == '3' ? 'active' : '' ?> href="index.php?controller=article&index=3">Bài viết</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="process_logout.php">Logout</a></a>
