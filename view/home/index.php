@@ -76,11 +76,11 @@
                     ?>
 
                         <div class="col-sm-3">
-                            <a href="detail.php?id=<?php echo $item->ma_bviet ?>"><div class="card mb-2" style="width: 100%;">
-                                <img src="./asset/images/songs/<?php echo !empty($item->hinhanh) ? $item->hinhanh : (str_replace('-','',create_slug($item->ten_bhat)).".jpg")  ?>" class="card-img-top" alt="...">
+                            <a href="detail.php?id=<?php echo  $item->getMaBviet() ?>"><div class="card mb-2" style="width: 100%;">
+                                <img src="./asset/images/songs/<?php echo !empty($item->getHinhanh()) ? $item->getHinhanh() : (str_replace('-','',create_slug($item->getTenBhat())).".jpg")  ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title text-center">
-                                        <a href="index.php?controller=detail&id=<?php echo $item->ma_bviet ?>" class="text-decoration-none"><?php echo $item->ten_bhat ?></a>
+                                        <a href="index.php?controller=detail&id=<?php echo $item->getMaBviet() ?>" class="text-decoration-none"><?php echo $item->getTenBhat() ?></a>
                                     </h5>
                                 </div>
                             </div></a>
