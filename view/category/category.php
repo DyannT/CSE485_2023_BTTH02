@@ -41,7 +41,7 @@
     <script>
         function showConfirmationDialog(id){
             if(confirm("Các bài viết thuộc thể loại sẽ bị xóa. Bạn có muốn xóa không?")){
-                window.location.href = "process_delete_category.php?id=" + id;
+                window.location.href = "index.php?controller=category&action=delete&id=" + id;
             }
         }
     </script>

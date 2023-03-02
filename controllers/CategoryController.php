@@ -32,4 +32,11 @@
 
             include("view/category/category.php");
         }
+
+        public function delete(){
+            $categoryService = new CategoryService();
+            $categorys = $categoryService->deleteCategory($_GET['id']);
+
+            include("view/category/category.php");
+        }
     }
