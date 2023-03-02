@@ -1,14 +1,14 @@
 <?php
 require '../includes/header.php';
-require '../includes/database-connection.php';
-require '../includes/functions.php';
-$sql = "SELECT * FROM `tacgia`";
-$arrTacGia = pdo($pdo, $sql)->fetchAll();
+// require '../includes/database-connection.php';
+// require '../includes/functions.php';
+// $sql = "SELECT * FROM `tacgia`";
+// $arrTacGia = pdo($pdo, $sql)->fetchAll();
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
         <div class="col-sm">
-            <a href="add_author.php" class="btn btn-success">Thêm mới</a>
+            <a href="../author/add_author.php" class="btn btn-success">Thêm mới</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -22,20 +22,20 @@ $arrTacGia = pdo($pdo, $sql)->fetchAll();
                 <tbody>
 
                     <?php
-                    foreach ($arrTacGia as $key => $item) {
+                    foreach ($authors as $key => $item) {
                     ?>
                         <tr>
-                            <th scope="row"><?php echo $item['ma_tgia'] ?></th>
-                            <td><?php echo $item['ten_tgia'] ?></td>
+                            <th scope="row"><?php echo $item->getMaTgia() ?></th>
+                            <td><?php echo $item->getTenTgia() ?></td>
                             <td>
-                                <img src="../images/songs/<?php echo $item['hinh_tgia']; ?>" class="rounded-3" style="width: 150px;" alt="...">
+                                <img src="./asset/images/author/<?php echo $item->getHinhTgia() ?>" class="rounded-3" style="width: 150px;" alt="...">
                             </td>
                             <td>
-                                <a href="edit_author.php?id=<?php echo $item['ma_tgia'] ?>"><i class="fa-solid fa-pen-to-square">
+                                <a href="edit_author.php?id=<?php echo $item->getMaTgia() ?>"><i class="fa-solid fa-pen-to-square">
                                     </i></a>
                             </td>
                             <td>
-                                <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item['ma_tgia'] ?>)"><i class="fa-solid fa-trash"></i></a>
+                                <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item->getMaTgia() ?>)"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php
@@ -54,5 +54,5 @@ $arrTacGia = pdo($pdo, $sql)->fetchAll();
     }
 </script>
 <?php
-require '../includes/footer.php';
+// require '../includes/footer.php';
 ?>

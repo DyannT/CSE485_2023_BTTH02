@@ -8,7 +8,7 @@ class ArticleService{
        $conn = $dbConn->getConnection();
 
         // B2. Truy vấn
-        $sql = "SELECT * FROM baiviet INNER JOIN theloai ON baiviet.ma_tloai=theloai.ma_tloai";
+        $sql = "SELECT * FROM baiviet";
         $stmt = $conn->query($sql);
 
         // B3. Xử lý kết quả

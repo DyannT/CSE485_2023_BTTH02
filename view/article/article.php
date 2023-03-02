@@ -1,14 +1,14 @@
 <?php
-require '../includes/header.php';
-require '../includes/database-connection.php';
-require '../includes/functions.php';
-// $sql = "SELECT * FROM `baiviet`";
-$sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat, theloai.ten_tloai, baiviet.tomtat, baiviet.noidung,
-tacgia.ten_tgia, baiviet.ngayviet, baiviet.hinhanh
-FROM
-baiviet INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai
-        INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia ORDER BY baiviet.ma_bviet";
-$arrBaiViet = pdo($pdo, $sql)->fetchAll();
+require './view/includes/header.php';
+// require '../includes/database-connection.php';
+// require '../includes/functions.php';
+// // $sql = "SELECT * FROM `baiviet`";
+// $sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat, theloai.ten_tloai, baiviet.tomtat, baiviet.noidung,
+// tacgia.ten_tgia, baiviet.ngayviet, baiviet.hinhanh
+// FROM
+// baiviet INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai
+//         INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia ORDER BY baiviet.ma_bviet";
+// $arrBaiViet = pdo($pdo, $sql)->fetchAll();
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
