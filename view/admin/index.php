@@ -27,6 +27,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
+                            <?php echo count($categorys) ?>
                         </h5>
                     </div>
                 </div>
@@ -40,6 +41,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
+                            <?php echo count($authors) ?>
                         </h5>
                     </div>
                 </div>
