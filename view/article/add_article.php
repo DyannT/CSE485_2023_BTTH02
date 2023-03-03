@@ -1,19 +1,12 @@
 <?php
-require '../includes/header.php';
-require '../includes/database-connection.php';
-require '../includes/functions.php';
-$sql = "SELECT * FROM `tacgia`";
-$authors = pdo($pdo, $sql)->fetchAll();
-$sql = "SELECT * FROM `theloai`";
-$categories = pdo($pdo, $sql)->fetchAll();
-
+require './view/includes/header.php';
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-            <form action="process_add_article.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="path" value="../images/songs/">
+            <form action="index.php?controller=article&action=add" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="path" value="../images/article/">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tiêu đề</span>
                     <input type="text" class="form-control" name="txtArtTitle">
@@ -24,10 +17,10 @@ $categories = pdo($pdo, $sql)->fetchAll();
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên thể loại</span>
-                    <select name="txtArtTL" class="form-select" required>
+                    <select name="txtArtTL" class="form-select">
                         <option selected></option>
-                        <?php foreach ($categories as $category) : ?>
-                            <option value="<?= $category['ma_tloai'] ?>"><?= $category['ten_tloai'] ?></option>
+                        <?php foreach ($categories as $item) : ?>
+                            <option value="<?php echo $item->getMa_tloai() ?>"><?php echo $item->getTen_tloai() ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -42,10 +35,10 @@ $categories = pdo($pdo, $sql)->fetchAll();
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên tác giả</span>
                     <!-- <input type="text" class="form-control" name="txtAutId"> -->
-                    <select name="txtAutId" class="form-select" aria-label="" required>
-                    <option selected></option>
-                        <?php foreach ($authors as $author) : ?>
-                            <option value="<?= $author['ma_tgia'] ?>"><?= $author['ten_tgia'] ?></option>
+                    <select name="txtAutId" class="form-select" aria-label="">
+                        <option selected></option>
+                        <?php foreach ($authors as $item) : ?>
+                            <option value="<?php echo $item->getMaTgia() ?>"><?php echo $item->getTenTgia() ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -62,5 +55,5 @@ $categories = pdo($pdo, $sql)->fetchAll();
     </div>
 </main>
 <?php
-require '../includes/footer.php';
+require './view/includes/footer.php';
 ?>

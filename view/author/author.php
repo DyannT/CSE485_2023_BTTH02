@@ -24,7 +24,7 @@ require './view/includes/header.php';
                             <th scope="row"><?php echo $item->getMaTgia() ?></th>
                             <td><?php echo $item->getTenTgia() ?></td>
                             <td>
-                                <img src="./asset/images/author/<?php echo $item->getHinhTgia() ?>" class="rounded-3" style="width: 150px;" alt="...">
+                                <img src="./asset/images/songs/<?php echo $item->getHinhTgia() ?>" class="rounded-3" style="width: 150px;" alt="...">
                             </td>
                             <td>
                                 <a href="index.php?controller=author&action=edit&ma_tgia=<?php echo $item->getMaTgia() ?>"><i class="fa-solid fa-pen-to-square">

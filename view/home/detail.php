@@ -50,17 +50,17 @@
 
         <div class="row mb-5">
             <div class="col-sm-4">
-                <img src="./asset/images/songs/<?php echo !empty($articles[0]->getHinhanh()) ? $articles[0]->getHinhanh() : (str_replace('-','',create_slug($articles[0]->getTenBhat())).".jpg")  ?>" class="img-fluid" alt="...">
+            <img src="./asset/images/songs/<?php echo !empty($articles[0]['hinhanh']) ? $articles[0]['hinhanh'] : (str_replace('-','',create_slug($articles[0]['ten_bhat'])).".jpg")  ?>" class="img-fluid" alt="...">
             </div>
             <div class="col-sm-8">
                 <h5 class="card-title mb-2">
-                    <a href="" class="text-decoration-none"><?php echo $articles[0]->getTenBhat() ?></a>
+                <a href="" class="text-decoration-none"><?php echo $articles[0]['ten_bhat'] ?></a>
                 </h5>
-                <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $articles[0]->getTenBhat() ?></p>
-                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]->getTLoai() ?></p>
-                <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $articles[0]->getTomtat() ?></p>
-                <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $articles[0]->getNoidung() ?></p>
-                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]->getTGia() ?></p>
+                <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $articles[0]['ten_bhat'] ?></p>
+                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]['ten_tloai'] ?></p>
+                <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $articles[0]['tomtat'] ?></p>
+                <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $articles[0]['tomtat'] ?></p>
+                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]['ten_tgia'] ?></p>
             </div>
         </div>
     </main>

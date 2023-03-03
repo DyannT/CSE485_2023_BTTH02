@@ -1,19 +1,10 @@
 <?php
 require './view/includes/header.php';
-// require '../includes/database-connection.php';
-// require '../includes/functions.php';
-// // $sql = "SELECT * FROM `baiviet`";
-// $sql = "SELECT baiviet.ma_bviet, baiviet.tieude, baiviet.ten_bhat, theloai.ten_tloai, baiviet.tomtat, baiviet.noidung,
-// tacgia.ten_tgia, baiviet.ngayviet, baiviet.hinhanh
-// FROM
-// baiviet INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai
-//         INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia ORDER BY baiviet.ma_bviet";
-// $arrBaiViet = pdo($pdo, $sql)->fetchAll();
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
         <div class="col-sm">
-            <a href="add_article.php" class="btn btn-success">Thêm mới</a>
+            <a href="index.php?controller=article&action=add" class="btn btn-success">Thêm mới</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -33,25 +24,25 @@ require './view/includes/header.php';
                 <tbody>
 
                     <?php
-                    foreach ($arrBaiViet as $key => $item) {
+                    foreach ($articles as $key => $item) {
                     ?>
                         <tr>
-                            <th scope="row"><?php echo $item['ma_bviet'] ?></th>
-                            <td><?php echo $item['tieude'] ?></td>
-                            <td><?php echo $item['ten_bhat'] ?></td>
-                            <td><?php echo $item['ten_tloai'] ?></td>
-                            <td><?php echo $item['tomtat'] ?></td>
-                            <td><?php echo $item['noidung'] ?></td>
-                            <td><?php echo $item['ten_tgia'] ?></td>
-                            <td><?php echo $item['ngayviet'] ?></td>
+                            <th scope="row"><?php echo $item->getMaBviet() ?></th>
+                            <td><?php echo $item->getTieude() ?></td>
+                            <td><?php echo $item->getTenBhat() ?></td>
+                            <td><?php echo $item->getMaTloai() ?></td>
+                            <td><?php echo $item->getTomtat() ?></td>
+                            <td><?php echo $item->getNoidung() ?></td>
+                            <td><?php echo $item->getMaTgia() ?></td>
+                            <td><?php echo $item->getNgayviet() ?></td>
                             <td>
-                                <img src="../images/songs/<?php echo $item['hinhanh']; ?>" class="rounded-3" style="width: 150px;" alt="...">
+                                <img src="./asset/images/article/<?php echo $item->getHinhanh() ?>" class="rounded-3" style="width: 150px;" alt="...">
                             </td>
                             <td>
-                                <a href="edit_article.php?id=<?php echo $item['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="index.php?controller=article&action=edit&id=<?php echo $item->getMaBviet() ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item['ma_bviet'] ?>)"><i class="fa-solid fa-trash"></i></a>
+                                <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item->getMaBviet() ?>)"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php
@@ -65,10 +56,10 @@ require './view/includes/header.php';
 <script>
     function showConfirmationDialog(id) {
         if (confirm("Bạn có muốn xóa không?")) {
-            window.location.href = "process_delete_article.php?id=" + id;
+            window.location.href = "index.php?controller=article&action=delete&id=" + id;
         }
     }
 </script>
 <?php
-require '../includes/footer.php';
+require './view/includes/footer.php';
 ?>

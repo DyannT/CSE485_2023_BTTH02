@@ -55,11 +55,4 @@ class AuthorController
         header("Location: index.php?controller=author&action=index");
     }
 
-    public function list()
-    {
-        // Nhiệm vụ 1: Tương tác với Services/Models
-        // echo "Tương tác với Services/Models from author";
-        // Nhiệm vụ 2: Tương tác với View
-        include("view/author/list_author.php");
-    }
 }

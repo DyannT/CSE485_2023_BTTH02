@@ -1,10 +1,6 @@
 <?php
 require './view/includes/header.php'; 
-// require '../includes/database-connection.php';
-// require '../includes/functions.php';
-// $id = $_GET['id'];
-// $sql = "SELECT * FROM `tacgia` WHERE ma_tgia = " . ($id);
-// $recordByID = pdo($pdo, $sql)->fetchAll();
+
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">

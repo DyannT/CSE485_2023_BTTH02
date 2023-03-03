@@ -1,72 +1,49 @@
 <?php
-require '../includes/header.php';
-require '../includes/database-connection.php';
-require '../includes/functions.php';
-$id = $_GET['id'];
-$sql = "SELECT * FROM `baiviet` WHERE ma_bviet = " . ($id);
-$recordByID = pdo($pdo, $sql)->fetchAll();
-
-
-$maTloai = $recordByID[0]['ma_tloai'];
-$sql = "SELECT * FROM `theloai` WHERE ma_tloai = " . ($maTloai);
-$recordByIDTL = pdo($pdo, $sql)->fetchAll();
-
-$maTGia = $recordByID[0]['ma_tgia'];
-$sql = "SELECT * FROM `tacgia` WHERE ma_tgia = " . ($maTGia);
-$recordByIDTG = pdo($pdo, $sql)->fetchAll();
-
-
-$sql = "SELECT * FROM `tacgia`";
-$authors = pdo($pdo, $sql)->fetchAll();
-$sql = "SELECT * FROM `theloai`";
-$categories = pdo($pdo, $sql)->fetchAll();
-
-
-
+require './view/includes/header.php'; 
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Sửa bài viết</h3>
-            <form action="process_add_article.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="path" value="../images/songs/">
+            <form action="index.php?controller=article&action=edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="path" value="../images/article/">
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutId">Mã bài viết</span>
-                    <input type="text" class="form-control" name="txtId" readonly value="<?php echo $recordByID[0]['ma_bviet'] ?>">
+                    <input type="text" class="form-control" name="txtId" readonly value="<?php echo $article->getMaBviet(); ?>">
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tiêu đề</span>
-                    <input type="text" class="form-control" value="<?php echo $recordByID[0]['tieude'] ?>" name="txtArtTitle">
+                    <input type="text" class="form-control" value="<?php echo $article->getTieude(); ?>" name="txtArtTitle">
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên bài hát</span>
-                    <input type="text" class="form-control" value="<?php echo $recordByID[0]['ten_bhat'] ?>" name="txtArtBh">
+                    <input type="text" class="form-control" value="<?php echo $article->getTenBhat(); ?>" name="txtArtBh">
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên thể loại</span>
-                    <select name="txtArtTL" class="form-select">
-                        <option value="<?php echo $maTloai ?>" selected><?php echo $recordByIDTL[0]['ten_tloai'] ?></option>
-                        <?php foreach ($categories as $category) : ?>
-                            <option value="<?= $category['ma_tloai'] ?>"><?= $category['ten_tloai'] ?></option>
+                    <select name="txtArtTL" class="form-select" >
+                        <option selected></option>
+                        <?php foreach ($categories as $item) : ?>
+                            <option value="<?php echo $item->getMa_tloai() ?>"><?php echo $item->getTen_tloai() ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tóm tắt</span>
-                    <input type="text" class="form-control" value="<?php echo $recordByID[0]['tomtat'] ?>" name="txtArtTt">
+                    <input type="text" class="form-control" value="<?php echo $article->getTenBhat(); ?>" name="txtArtTt">
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Nội dung</span>
                     <div id="editor">
-                        <textarea rows="10" name="txtArtContent"><?php echo $recordByID[0]['noidung'] ?></textarea>
+                        <textarea rows="10" name="txtArtContent"><?php echo $article->getTenBhat() ?></textarea>
                     </div>
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên tác giả</span>
-                    <select name="txtAutId" class="form-select" aria-label="">
-                        <option value="<?php echo $maTGia ?>" selected><?php echo $recordByIDTG[0]['ten_tgia'] ?></option>
-                        <?php foreach ($authors as $author) : ?>
-                            <option value="<?= $author['ma_tgia'] ?>"><?= $author['ten_tgia'] ?></option>
+                    <select name="txtAutId" class="form-select" aria-label="" >
+                    <option selected></option>
+                        <?php foreach ($authors as $item) : ?>
+                            <option value="<?php echo $item->getMaTgia() ?>"><?php echo $item->getTenTgia() ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -83,5 +60,5 @@ $categories = pdo($pdo, $sql)->fetchAll();
     </div>
 </main>
 <?php
-require '../includes/footer.php';
+require './view/includes/footer.php'; 
 ?>
