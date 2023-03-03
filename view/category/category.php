@@ -1,15 +1,11 @@
-    <?php
-            require '../includes/header.php';  
-            require '../includes/database-connection.php';  
-            require '../includes/functions.php';  
-            $sql = "SELECT * FROM `theloai`";
-            $arrTheLoai = pdo($pdo, $sql)->fetchAll(); 
+<?php
+            require './view/includes/header.php';  
     ?>
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_category.php" class="btn btn-success">Thêm mới</a>
+                <a href="index.php?controller=category&action=create" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -22,16 +18,16 @@
                     <tbody>
                         
                         <?php
-                            foreach($arrTheLoai as $key => $item){
+                            foreach($categorys as $key => $item){
                         ?>
                             <tr>
-                                <th scope="row"><?php echo $item['ma_tloai'] ?></th>
-                                <td><?php echo $item['ten_tloai'] ?></td>
+                                <th scope="row"><?php echo $item->getMa_tloai() ?></th>
+                                <td><?php echo $item->getTen_tloai() ?></td>
                                 <td>
-                                    <a href="edit_category.php?id=<?php echo $item['ma_tloai'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="index.php?id=<?php echo $item->getMa_tloai() ?>&controller=category&action=edit"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item['ma_tloai'] ?>)"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="javascript:void(0);" onclick="showConfirmationDialog(<?php echo $item->getMa_tloai() ?>)"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php        
@@ -50,5 +46,5 @@
         }
     </script>
     <?php
-        require '../includes/footer.php';  
+        require './view/includes/footer.php';  
     ?>

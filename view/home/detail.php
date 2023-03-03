@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music for Life</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./asset/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                             <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./login.php">Đăng nhập</a>
+                            <a class="nav-link" href="index.php?controller=login">Đăng nhập</a>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -50,17 +50,17 @@
 
         <div class="row mb-5">
             <div class="col-sm-4">
-                <img src="./asset/images/songs/<?php echo !empty($articles[0]['hinhanh']) ? $articles[0]['hinhanh'] : (str_replace('-','',create_slug($articles[0]['ten_bhat'])).".jpg")  ?>" class="img-fluid" alt="...">
+                <img src="./asset/images/songs/<?php echo !empty($articles[0]->getHinhanh()) ? $articles[0]->getHinhanh() : (str_replace('-','',create_slug($articles[0]->getTenBhat())).".jpg")  ?>" class="img-fluid" alt="...">
             </div>
             <div class="col-sm-8">
                 <h5 class="card-title mb-2">
-                    <a href="" class="text-decoration-none"><?php echo $articles[0]['ten_bhat'] ?></a>
+                    <a href="" class="text-decoration-none"><?php echo $articles[0]->getTenBhat() ?></a>
                 </h5>
-                <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $articles[0]['ten_bhat'] ?></p>
-                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]['ten_tloai'] ?></p>
-                <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $articles[0]['tomtat'] ?></p>
-                <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $articles[0]['tomtat'] ?></p>
-                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]['ten_tgia'] ?></p>
+                <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php echo $articles[0]->getTenBhat() ?></p>
+                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php echo $articles[0]->getTLoai() ?></p>
+                <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php echo $articles[0]->getTomtat() ?></p>
+                <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php echo $articles[0]->getNoidung() ?></p>
+                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php echo $articles[0]->getTGia() ?></p>
             </div>
         </div>
     </main>

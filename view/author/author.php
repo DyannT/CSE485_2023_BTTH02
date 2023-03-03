@@ -1,9 +1,5 @@
 <?php
 require './view/includes/header.php';
-// require '../includes/database-connection.php';
-// require '../includes/functions.php';
-// $sql = "SELECT * FROM `tacgia`";
-// $arrTacGia = pdo($pdo, $sql)->fetchAll();
 ?>
 <main class="container mt-5 mb-5">
     <div class="row">
@@ -54,5 +50,5 @@ require './view/includes/header.php';
 }
 </script>
 <?php
-// require '../includes/footer.php';
+require './view/includes/footer.php';
 ?>

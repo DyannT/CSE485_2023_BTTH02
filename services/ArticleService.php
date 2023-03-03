@@ -14,7 +14,7 @@ class ArticleService{
         // B3. Xử lý kết quả
         $articles = [];
         while($row = $stmt->fetch()){
-            $article = new Article($row['ma_bviet'], $row['hinhanh'], $row['ten_bhat']);
+            $article = new Article( $row['hinhanh'], $row['ten_bhat'],$row['ma_bviet']);
             array_push($articles,$article);
         }
 
@@ -34,17 +34,8 @@ class ArticleService{
                  // B3. Xử lý kết quả
         $articles = [];
         while($row = $stmt->fetch()){
-            // $article = new Article($row['ma_bviet'], $row['hinhanh'], $row['ten_bhat']);
-            $arr = [
-                'tieude' => $row['tieude'],
-                'ten_bhat' => $row['ten_bhat'],
-                'tomtat' => $row['tomtat'],
-                'ten_tgia' => $row['ten_tgia'],
-                'ten_tloai' => $row['ten_tloai'],
-                'ngayviet' => $row['ngayviet'],
-                'hinhanh' => $row['hinhanh']
-            ];
-            array_push($articles,$arr);
+            $article = new Article($row['hinhanh'], $row['ten_bhat'],$row['ma_bviet'],$row['tieude'], $row['tomtat'],$row['ten_tgia'],$row['ten_tloai'],$row['ngayviet']);
+            array_push($articles,$article);
         }
 
         // Mảng (danh sách) các đối tượng Article Model
