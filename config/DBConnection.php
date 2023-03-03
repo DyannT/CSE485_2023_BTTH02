@@ -1,5 +1,4 @@
 <?php
-
 class DBConnection{
     private $conn=null;
 
@@ -16,5 +15,11 @@ class DBConnection{
         return $this->conn;
     }
 
-
+    function __destruct() {
+        try {
+            $this->conn = null; //Closes connection
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
 }
