@@ -57,3 +57,52 @@ require './view/includes/header.php';
 <?php
 require './view/includes/footer.php';
 ?>
+
+<script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            var tenTieude = document.querySelector('input[name="txtArtTitle"]');
+            var tenBaihat = document.querySelector('input[name="txtArtBh"]');
+            var tomTat = document.querySelector('textarea[name="txtArtTt"]');
+            var noiDung = document.querySelector('textarea[name="txtArtContent"]');
+
+            if (tenTieude.value.trim() === '') {
+                    alert('Bạn chưa nhập Tên tiêu đề');
+                    tenTieude.style.border = '1px solid red';
+                    form.unsubmit();
+
+                }
+                else{
+                    tenTieude.style.border = 'none';
+                }
+            if (tenBaihat.value.trim() === '') {
+                    alert('Bạn chưa nhập Tên bài hát');
+                    tenBaihat.style.border = '1px solid red';
+                    form.unsubmit();
+
+                }
+                else{
+                    tenBaihat.style.border = 'none';
+                }
+                if (tomTat.value.trim() === '') {
+                    alert('Bạn chưa nhập Tóm tắt');
+                    tomTat.style.border = '1px solid red';
+                    form.unsubmit();
+
+                }
+                else{
+                    tomTat.style.border = 'none';
+                }
+                if (noiDung.value.trim() === '') {
+                    alert('Bạn chưa nhập Nội dung');
+                    noiDung.style.border = '1px solid red';
+                    form.unsubmit();
+
+                }  
+                else{
+                    noiDung.style.border = 'none';
+                }  
+                form.submit();
+        });
+</script>

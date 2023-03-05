@@ -30,8 +30,10 @@
             var tenTheLoai = document.querySelector('input[name="txtCatName"]');
             if (tenTheLoai.value.trim() === '') {
                     alert('Bạn chưa nhập Tên thể loại');
-                    return;
+                    tenTheLoai.style.border = '1px solid red';
                 }
-            form.submit();
+                else{
+                    form.submit();
+                }
         });
 </script>

@@ -26,3 +26,18 @@
 <?php
     require './view/includes/footer.php';  
 ?>
+
+<script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            var tenTheLoai = document.querySelector('input[name="txtAutName"]');
+            if (tenTheLoai.value.trim() === '') {
+                    alert('Bạn chưa nhập Tên tác giả');
+                    tenTheLoai.style.border = '1px solid red';
+                }
+                else{
+                    form.submit();
+                }
+        });
+</script>
