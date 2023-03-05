@@ -31,3 +31,16 @@
     <?php
         require './view/includes/footer.php';  
     ?>
+
+<script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            var tenTheLoai = document.querySelector('input[name="txtCatName"]');
+            if (tenTheLoai.value.trim() === '') {
+                    alert('Bạn chưa nhập Tên thể loại');
+                    return;
+                }
+            form.submit();
+        });
+</script>
