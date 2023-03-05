@@ -7,6 +7,7 @@ require("services/AdminService.php");
             $categoryService = new CategoryService();
             $categorys = $categoryService->getAllCategorys();
             
+            
             $authorService = new AuthorService();
             $authors = $authorService->getAllAuthor();
 
