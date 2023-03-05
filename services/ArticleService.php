@@ -16,7 +16,7 @@ class ArticleService
         // B3. Xử lý kết quả
         $articles = [];
         while ($row = $stmt->fetch()) {
-            $article = new Article($row['hinhanh'], $row['ten_bhat'], $row['ma_bviet']);
+            $article = new Article($row['ma_bviet'],null, $row['ten_bhat'], $row['hinhanh']);
             array_push($articles, $article);
         }
 
