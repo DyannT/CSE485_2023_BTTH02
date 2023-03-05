@@ -13,16 +13,15 @@ class LoginController
         $password = $_POST['txtPassword'];
 
         $user = $userService->login($username, $password);
-        var_dump($user);
-        // if ($user) {
-        //     session_start();
-        //     $_SESSION['user'] = $user;
-        //     header('Location: index.php?controller=admin');
-        //     exit;
-        // } else {
-        //     header("Location: index.php?controller=login&error='Invalid user or pass'");
-        //     exit;
-        // }
+        if ($user) {
+            session_start();
+            $_SESSION['user'] = $user;
+            header('Location: index.php?controller=admin');
+            exit;
+        } else {
+            header("Location: index.php?controller=login&error='Invalid user or pass'");
+            exit;
+        }
     }
 
     public function logout()
