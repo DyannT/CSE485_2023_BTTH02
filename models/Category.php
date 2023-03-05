@@ -16,11 +16,11 @@ class Category{
     }
 
     // Setter và Getter
-    public function getMaBviet() {
+    public function getSLBaiViet() {
         return $this->SLBaiViet;
     }
 
-    public function setMaBviet($SLBaiViet) {
+    public function setSLBaiViet($SLBaiViet) {
         $this->SLBaiViet = $SLBaiViet;
     }
 

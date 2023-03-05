@@ -65,7 +65,7 @@
 
                         <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                            <input type="text" class=" form-control" placeholder="confirm password" name="confirm_password">
+                            <input type="password" class=" form-control" placeholder="confirm password" name="confirm_password">
                         </div>
 
 

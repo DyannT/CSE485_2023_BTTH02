@@ -60,7 +60,7 @@
 
                         <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                            <input type="text" class=" form-control" placeholder="password" name="txtPassword">
+                            <input type="password" class=" form-control" placeholder="password" name="txtPassword">
                         </div>
                         <?php
                             if (isset($_GET['error'])) {

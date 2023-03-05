@@ -37,8 +37,6 @@ class LoginController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['txtUser'];
             $password = $_POST['txtPassword'];
-            echo $username;
-            echo $password;
             $userService = new AdminService();
             $userService->register($username, $password);
             header("Location: index.php?controller=login&success='Register success'");
