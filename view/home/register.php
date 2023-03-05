@@ -48,11 +48,11 @@
         <div class="d-flex justify-content-center h-100">
                 <div class="card">
                     <div class="card-header text-center ">
-                        <h3>Sign In</h3>
+                        <h3>Register</h3>
                         
                     </div>
                     <div class="card-body">
-                    <form id = "formLogin" action="index.php?controller=login&action=login" method="post">
+                    <form id = "formLogin" action="index.php?controller=login&action=register" method="post">
                         <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                             <input type="text" class=" form-control" placeholder="username" name="txtUser">
@@ -62,26 +62,15 @@
                             <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
                             <input type="text" class=" form-control" placeholder="password" name="txtPassword">
                         </div>
-                        <?php
-                            if (isset($_GET['error'])) {
-                                ?>
-                                <style>
-                                    .error-input{
-                                        border: 1px solid red;
-                                    }
-                                </style>
 
-                                <?php
-                                echo "<p style='color:red'>{$_GET['error']}</p>";
-                            }else if(isset($_GET['success'])){
-                                echo "<p style='color:green'>{$_GET['success']}</p>";
-                            }
-                        ?>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
+                        <div class="error-input input-group mb-3">
+                            <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
+                            <input type="text" class=" form-control" placeholder="confirm password" name="confirm_password">
                         </div>
+
+
                         <div class="form-group text-center">
-                            <input type="submit" name="login" value="Login" class="btn login_btn">
+                            <input type="submit" name="login" value="Create Account" class="btn login_btn">
                         </div>
 
                     </form>
@@ -93,9 +82,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center ">
-                        Don't have an account? &nbsp
-                        
-                         <a href="index.php?controller=login&action=register" class="text-decoration-none">Sign Up</a>
+                        <a href="index.php?controller=login&action=register" class="text-decoration-none">Sign Up</a>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="#" class="text-decoration-none">Forgot your password?</a>
@@ -118,6 +105,7 @@
             event.preventDefault();
             var username = document.querySelector('input[name="txtUser"]');
             var password = document.querySelector('input[name="txtPassword"]');
+            var confirm_password = document.querySelector('input[name="confirm_password"]');
             if (username.value.trim() === '') {
                     alert('Bạn chưa nhập tài khoản');
                     username.style.border = '1px solid red';
@@ -125,6 +113,15 @@
                 else if (password.value.trim() === '') {
                     alert('Bạn chưa nhập mật khẩu');
                     password.style.border = '1px solid red';
+                }
+                else if (confirm_password.value.trim() === '') {
+                    alert('Bạn chưa nhập lại mật khẩu');
+                    confirm_password.style.border = '1px solid red';
+                }
+                else if (password.value.trim() !== confirm_password.value.trim()) {
+                    alert('Mật khẩu không khớp');
+                    password.style.border = '1px solid red';
+                    confirm_password.style.border = '1px solid red';
                 }
                 else{
                     form.submit();

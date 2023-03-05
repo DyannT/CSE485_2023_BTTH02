@@ -1,48 +1,71 @@
 <?php
 require_once("config/DBConnection.php");
 include("models/Admin.php");
-class AdminService{
-    public function getAllAdmin(){
-        // 4 bước thực hiện
-       $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
+class AdminService
+{
+  public function getAllAdmin()
+  {
+    // 4 bước thực hiện
+    $dbConn = new DBConnection();
+    $conn = $dbConn->getConnection();
 
-        // B2. Truy vấn
-        $sql = "SELECT * FROM user";
-        $stmt = $conn->query($sql);
+    // B2. Truy vấn
+    $sql = "SELECT * FROM user";
+    $stmt = $conn->query($sql);
 
-        // B3. Xử lý kết quả
-        $admins = [];
-        while($row = $stmt->fetch()){
-            $admin = new Admin( $row['id'], $row['username'],$row['password']);
-            array_push($admins,$admin);
-        }
-
-        // Mảng (danh sách) các đối tượng Category Model
-
-        return $admins;
+    // B3. Xử lý kết quả
+    $admins = [];
+    while ($row = $stmt->fetch()) {
+      $admin = new Admin($row['id'], $row['username'], $row['password']);
+      array_push($admins, $admin);
     }
-    public function login($username, $password) {
-        $dbConn = new DBConnection();
-       $conn = $dbConn->getConnection();
-    
-        try {
-          $sql = "SELECT * FROM user WHERE username = ? AND password = ?";
-          $stmt = $conn->prepare($sql);
-          $stmt->execute([$username, $password]);
-    
-          $user = null;
-          if ($row = $stmt->fetch()) {
-            $user = new Admin($row['id'], $row['username'], $row['password']);
-          }
-    
-          return $user;
-        } catch (Exception $e) {
-          // handle exception
-          throw new Exception("Error authenticating user: " . $e->getMessage());
-        } finally {
-          // always close connection
-          $conn = null;
+
+    // Mảng (danh sách) các đối tượng Category Model
+
+    return $admins;
+  }
+  public function login($username, $password)
+  {
+    $dbConn = new DBConnection();
+    $conn = $dbConn->getConnection();
+  
+    try {
+      $sql = "SELECT * FROM user WHERE username = ?";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([$username]);
+  
+      $user = null;
+      if ($row = $stmt->fetch()) {
+        echo $row['id'];
+        echo '  ';
+        echo $row['username'];
+        echo '  ';
+        echo $row['password'];
+        if (password_verify($password, $row['password'])) { // kiểm tra password có khớp với hash trong database không
+          $user = new Admin($row['id'], $row['username'], $row['password']);
         }
       }
+      return $user;
+    } catch (Exception $e) {
+      throw new Exception("Error authenticating user: " . $e->getMessage());
+    } finally {
+      $conn = null;
+    }
+  }
+  public function register($username, $password)
+  {
+    $dbConn = new DBConnection();
+    $conn = $dbConn->getConnection();
+
+    try {
+      $hash = password_hash($password, PASSWORD_DEFAULT); // tạo hash từ password
+      $sql = "INSERT INTO user (username, password) VALUES (?, ?)";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([$username, $hash]); // lưu hash vào cơ sở dữ liệu
+    } catch (Exception $e) {
+      throw new Exception("Error registering user: " . $e->getMessage());
+    } finally {
+      $conn = null;
+    }
+  }
 }

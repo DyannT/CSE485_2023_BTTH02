@@ -2,9 +2,9 @@
 class Admin{
     // Thuộc tính
 
-    private $password;
     private $id;
     private $username;
+    private $password;
 
 
     public function __construct($id = null,
