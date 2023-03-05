@@ -16,7 +16,7 @@ class AuthorController
 
     public function add()
     {
-        if(isset($_POST['txtAutName'])){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $name = $_POST['txtAutName'];
             $image_path = $_POST['path'].$_FILES['img']['name'];
             $name_image = $_FILES['img']['name'];
@@ -29,7 +29,7 @@ class AuthorController
         }
     }
     public function edit(){
-        if(isset($_POST['txtAutId'])){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $ma_tgia = $_POST['txtAutId'];
             $name = $_POST['txtAutName'];
             $image_path = $_POST['path'].$_FILES['img']['name'];

@@ -104,16 +104,45 @@ class ArticleService
         $conn = $dbConn->getConnection();
 
         // B2. Truy vấn
-        $sql = "SELECT * FROM baiviet WHERE ma_bviet = '" . $id . "'";
+        // $sql = "SELECT * FROM baiviet WHERE ma_bviet = '" . $id . "'";
+        $sql = "SELECT baiviet.*, tacgia.ten_tgia, theloai.ten_tloai 
+        FROM baiviet 
+        INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia 
+        INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai
+        WHERE baiviet.ma_bviet = '" . $id . "'";
         $stmt = $conn->query($sql);
 
+        // // B3. Xử lý kết quả
+        // $row = $stmt->fetch();
+        // $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
+
+        // // Mảng (danh sách) các đối tượng Article Model
+
+        // return $article;
         // B3. Xử lý kết quả
-        $row = $stmt->fetch();
-        $article = new Article($row['ma_bviet'], $row['tieude'], $row['ten_bhat'], $row['ma_tloai'], $row['tomtat'], $row['noidung'], $row['ma_tgia'], $row['ngayviet'], $row['hinhanh']);
+        $articles = [];
+        while ($row = $stmt->fetch()) {
+            // $article = new Article($row['hinhanh'], $row['ten_bhat'],$row['ma_bviet'],$row['tieude'], $row['tomtat'],$row['ten_tgia'],$row['ten_tloai'],$row['ngayviet']);
+            // array_push($articles,$article);
+            $arr = [
+                'ma_bviet' => $row['ma_bviet'],
+                'tieude' => $row['tieude'],
+                'ten_bhat' => $row['ten_bhat'],
+                'ma_tloai' => $row['ma_tloai'],
+                'tomtat' => $row['tomtat'],
+                'noidung' => $row['noidung'],
+                'ma_tgia' => $row['ma_tgia'],
+                'hinhanh' => $row['hinhanh'],
+                'ten_tgia' => $row['ten_tgia'],
+                'ten_tloai' => $row['ten_tloai']
+
+            ];
+            array_push($articles, $arr);
+        }
 
         // Mảng (danh sách) các đối tượng Article Model
 
-        return $article;
+        return $articles;
     }
     public function edit($maBaiViet, $tieuDe, $tenBaiHat, $maTheLoai, $tomTat, $noiDung, $maTacGia, $name_image)
     {

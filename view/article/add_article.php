@@ -17,7 +17,7 @@ require './view/includes/header.php';
                 </div>
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên thể loại</span>
-                    <select name="txtArtTL" class="form-select">
+                    <select name="txtArtTL" class="form-select" required>
                         <option selected></option>
                         <?php foreach ($categories as $item) : ?>
                             <option value="<?php echo $item->getMa_tloai() ?>"><?php echo $item->getTen_tloai() ?></option>
@@ -35,7 +35,7 @@ require './view/includes/header.php';
                 <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblAutName">Tên tác giả</span>
                     <!-- <input type="text" class="form-control" name="txtAutId"> -->
-                    <select name="txtAutId" class="form-select" aria-label="">
+                    <select name="txtAutId" class="form-select" aria-label="" required>
                         <option selected></option>
                         <?php foreach ($authors as $item) : ?>
                             <option value="<?php echo $item->getMaTgia() ?>"><?php echo $item->getTenTgia() ?></option>

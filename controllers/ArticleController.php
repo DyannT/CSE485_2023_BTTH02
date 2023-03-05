@@ -15,7 +15,7 @@ class ArticleController
 
     public function add()
     {
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['txtArtTitle'])){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $tieuDe = $_POST['txtArtTitle'];
             $tenBaiHat = $_POST['txtArtBh'];
             $maTheLoai = $_POST['txtArtTL'];
@@ -45,7 +45,7 @@ class ArticleController
         header("Location: index.php?controller=article&action=index");
     }
     public function edit(){
-        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['txtArtTitle'])){
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $maBaiViet = $_POST['txtId'];
             $tieuDe = $_POST['txtArtTitle'];
             $tenBaiHat = $_POST['txtArtBh'];
