@@ -8,6 +8,7 @@ require("services/ArticleService.php");
             $categoryService = new CategoryService();
             $categorys = $categoryService->getAllCategorys();
             
+            
             $authorService = new AuthorService();
             $authors = $authorService->getAllAuthor();
 

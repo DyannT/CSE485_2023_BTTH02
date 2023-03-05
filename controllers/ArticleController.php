@@ -11,6 +11,7 @@ class ArticleController
         $articleService = new ArticleService();
         $articles = $articleService->getAllArticle();
         include("view/article/article.php");
+        
     }
 
     public function add()
