@@ -42,7 +42,7 @@
                         <a class="nav-link "<?php echo $index == '3' ? 'active' : '' ?> href="index.php?controller=article&index=3">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="process_logout.php">Logout</a></a>
+                        <a class="nav-link" href="index.php?controller=login&action=logout">Logout</a></a>
                 </ul>
                 </div>
             </div>

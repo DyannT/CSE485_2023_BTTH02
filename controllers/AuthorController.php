@@ -23,7 +23,7 @@ class AuthorController
             $authorService = new AuthorService();
             $authorService->create($name, $name_image);
             move_uploaded_file($_FILES['img']['tmp_name'], $image_path);
-            header("Location: index.php?controller=author&action=index");
+            header("Location: /index.php?controller=author&action=index");
         }else{
             include "view/author/add_author.php";
         }

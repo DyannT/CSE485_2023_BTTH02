@@ -22,4 +22,27 @@ class AdminService{
 
         return $admins;
     }
+    public function login($username, $password) {
+        $dbConn = new DBConnection();
+       $conn = $dbConn->getConnection();
+    
+        try {
+          $sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+          $stmt = $conn->prepare($sql);
+          $stmt->execute([$username, $password]);
+    
+          $user = null;
+          if ($row = $stmt->fetch()) {
+            $user = new Admin($row['id'], $row['username'], $row['password']);
+          }
+    
+          return $user;
+        } catch (Exception $e) {
+          // handle exception
+          throw new Exception("Error authenticating user: " . $e->getMessage());
+        } finally {
+          // always close connection
+          $conn = null;
+        }
+      }
 }
