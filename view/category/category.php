@@ -11,7 +11,6 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Tên thể loại</th>
-                            <th scope="col">Số lượng bài viết</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
