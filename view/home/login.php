@@ -52,7 +52,7 @@
                         
                     </div>
                     <div class="card-body">
-                    <form action="index.php?controller=login&action=login" method="post">
+                    <form id = "formLogin" action="index.php?controller=login&action=login" method="post">
                         <div class="error-input input-group mb-3">
                             <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
                             <input type="text" class=" form-control" placeholder="username" name="txtUser">
@@ -108,3 +108,22 @@
 </body>
 
 </html>
+<script>
+    const form = document.querySelector('#formLogin');
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            var username = document.querySelector('input[name="txtUser"]');
+            var password = document.querySelector('input[name="txtPassword"]');
+            if (username.value.trim() === '') {
+                    alert('Bạn chưa nhập tài khoản');
+                    username.style.border = '1px solid red';
+                }
+                else if (password.value.trim() === '') {
+                    alert('Bạn chưa nhập mật khẩu');
+                    password.style.border = '1px solid red';
+                }
+                else{
+                    form.submit();
+                }
+        });
+</script>

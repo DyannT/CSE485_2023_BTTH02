@@ -22,7 +22,7 @@ require './view/includes/header.php';
                 </div>
                 <div class="form-group  float-end">
                     <input type="submit" value="Lưu lại" class="btn btn-success">
-                    <a href="author.php" class="btn btn-warning ">Quay lại</a>
+                    <a href="index.php?controller=author&action=index" class="btn btn-warning ">Quay lại</a>
                 </div>
             </form>
         </div>
