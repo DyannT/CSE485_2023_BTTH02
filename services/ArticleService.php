@@ -16,7 +16,7 @@ class ArticleService
         // B3. Xử lý kết quả
         $articles = [];
         while ($row = $stmt->fetch()) {
-            $article = new Article($row['hinhanh'], $row['ten_bhat'], $row['ma_bviet']);
+            $article = new Article( $row['ma_bviet'],$row['hinhanh'], $row['ten_bhat']);
             array_push($articles, $article);
         }
 
@@ -126,13 +126,14 @@ class ArticleService
             // array_push($articles,$article);
             $arr = [
                 'ma_bviet' => $row['ma_bviet'],
-                'tieude' => $row['tieude'],
+                'hinhanh' => $row['hinhanh'],
                 'ten_bhat' => $row['ten_bhat'],
+                'tieude' => $row['tieude'],
                 'ma_tloai' => $row['ma_tloai'],
                 'tomtat' => $row['tomtat'],
                 'noidung' => $row['noidung'],
                 'ma_tgia' => $row['ma_tgia'],
-                'hinhanh' => $row['hinhanh'],
+                'ngayviet' => $row['ngayviet'],
                 'ten_tgia' => $row['ten_tgia'],
                 'ten_tloai' => $row['ten_tloai']
 

@@ -74,7 +74,6 @@
         <?php 
                 foreach($articles as $key => $item){
                     ?>
-
                         <div class="col-sm-3">
                             <a href="detail.php?id=<?php echo  $item->getMaBviet() ?>"><div class="card mb-2" style="width: 100%;">
                                 <img src="./asset/images/songs/<?php echo !empty($item->getHinhanh()) ? $item->getHinhanh() : (str_replace('-','',create_slug($item->getTenBhat())).".jpg")  ?>" class="card-img-top" alt="...">
