@@ -55,6 +55,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
+                            <?php echo count($articles) ?>
                         </h5>
                     </div>
                 </div>
