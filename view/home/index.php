@@ -82,7 +82,7 @@
                                         <a href="index.php?controller=detail&id=<?php echo $item->getMaBviet() ?>" class="text-decoration-none"><?php echo $item->getTenBhat() ?></a>
                                     </h5>
                                 </div>
-                            </div></a>
+                            </div>
                         </div>
                     <?php
                 }
