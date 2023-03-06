@@ -38,7 +38,7 @@ class AdminService
 
             $user = null;
             if ($row = $stmt->fetch()) {
-                if (strcmp(md5($password), $row['password']) == 0) {
+                if (password_verify($password, $row['password'])) {
                     $user = new Admin($row['id'], $row['username'], $row['password']);
                 }
             }
@@ -56,10 +56,10 @@ class AdminService
         $conn = $dbConn->getConnection();
 
         try {
-            $hash = md5($password); // tạo hash từ password
+            $hash = password_hash($password, PASSWORD_DEFAULT); // tạo hash từ password
             $sql = "INSERT INTO user (username, password) VALUES (?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->execute([$username, $hash]); // lưu hash vào cơ sở dữ liệu
+            $stmt->execute([$username, $hash]);
         } catch (Exception $e) {
             throw new Exception("Error registering user: " . $e->getMessage());
         } finally {
